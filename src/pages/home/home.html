@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contacts
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!-- <ion-searchbar (ionInput)="filterContacts($event)">
+  </ion-searchbar> -->
+
+  <ion-list>
+    <ion-item-sliding #slidingitem *ngFor="let contact of contactList | async, let i = index">
+      <!-- (click)="onContactClick(contact.phoneNumbers[0].value)" -->
+      <ion-item>
+        <ion-icon item-start *ngIf="contact.phoneNumbers"
+          ios="ios-call"
+          md="md-call"
+          tappable></ion-icon>
+  
+        <ion-label>
+          {{contact.name.givenName}}
+        </ion-label>
+      </ion-item>
+      <!-- <ion-item (click)="onContactClick(contact)">
+        <ion-avatar item-start>
+          <img src="{{ contact.picture.thumbnail }}" alt="" />
+        </ion-avatar>
+        <h2>{{ contact.name.title }} {{ contact.name.first }} {{ contact.name.last }}</h2>
+        <p>
+          {{ contact.phone }}
+        </p>
+      </ion-item> -->
+
+
+      <!-- <ion-item-options side="right">
+        <button ion-button (click) = "addToFavorite(contact,slidingitem)"  *ngIf = !contact.isFavorite>
+          <ion-icon name="star"></ion-icon>
+          Favorite
+        </button>
+        <button ion-button color="danger" (click)="deleteContact(i)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options> -->
+
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>
